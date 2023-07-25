@@ -31,7 +31,7 @@ SECRET_KEY = 'django-insecure-3t)&z#d%gzmine*a!fwj^f-um5_0oi8-p21&(9i)l7mdgvzxaj
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = False
-DEBUG = True
+DEBUG = os.environ['DEBUG'] == 'True'
 
 DOMAIN = os.environ.get('DOMAIN')
 
@@ -172,16 +172,16 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'build/static'),
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, 'static'),
     
-]
+# ]
 
 # STATICFILES_STORAGE = (
 #     'whitenoise.storage.CompressedManifestStaticFilesStorage')
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-STATIC_URL = '/static/'
+STATIC_URL = '/api/static/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
